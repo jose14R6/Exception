@@ -1,14 +1,28 @@
-//ArrayList<ArrayList<String>> array = new ArrayList<ArrayList<String>>();
+/*
+* Here is the list of names on the txt file:
+*    Amy amyb2008
+*    Maricela mcortez86
+*    Jose jbenitez86
+*    Erick erickb01
+*    Ricky bestbroever1
+*
+*
+*
+* */
 import java.util.*;
 import java.io.*;
 import java.lang.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String file = "/home/jose/Desktop/JAVA Coding/Exception/src/namelist.txt";
-        //Scanner input = new Scanner(System.in);
 
-        //BufferedReader br = new BufferedReader(new FileReader(file));
+        String stuID;
+
+        String textString = "namelist.txt";
+
+        String file = "/home/jose/Desktop/JAVA Coding/Exception/src/namelist.txt";
+
+        Scanner input = new Scanner(System.in);
 
         Scanner br = new Scanner(new BufferedReader(new FileReader(file)));
 
@@ -23,26 +37,36 @@ public class Main {
             }
         }
 
-        System.out.println(myArray[4][0]);
+        System.out.print("Please enter a \"1\" to select the namelist.txt file for the program: ");
+        int textNum = input.nextInt();
+        while (textNum != 1){
+            System.out.print("Please make sure to enter a 1 for the selection: ");
+            textNum = input.nextInt();
+        }
+        //System.out.println("the file name for this is: " + textString + ".");
 
-        /*ArrayList<ArrayList<String>> multiArray = new ArrayList<ArrayList<String>>();
-        //ArrayList<String> multiArray = new ArrayList<>();
 
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
-        String line = br.readLine();
-
-        while (line != null) {
-            //multiArray.add(new ArrayList<String>());
-            multiArray.add(line);
-            line = br.readLine();
-            //System.out.println(multiArray);
+        System.out.print("\nHow would you like to search for the student? Enter 1 by ID num or enter a 2 for " +
+                "the name of the student: ");
+        int searchNum = input.nextInt();
+        while (searchNum != 1 && searchNum != 2){
+            System.out.print("Please make sure to enter a 1 or a 2 for the selection: ");
+            searchNum = input.nextInt();
         }
 
-        String[] strArray = new String[5];
-        strArray = multiArray.toArray(strArray);
 
-        System.out.println(strArray[0]);*/
+        if(searchNum == 1) {
+            System.out.print("Enter the student ID number to see if they are on the list: ");
+            stuID = input.next();
+            //System.out.print("Student id entered was: " + stuID + ".");
+        }else {
+            System.out.print("Enter the name of the student to see if they are on the list: ");
+            stuID = input.next();
+        }
+
+
+
+        //System.out.println(myArray[4][0]);
 
         br.close();
 
